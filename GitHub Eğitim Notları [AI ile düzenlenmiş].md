@@ -256,6 +256,9 @@ githubdaki action kısmı ise projeyi yönetme konusunda yardımcı araçlar sun
 readme dosyaları .md formatındadır yani markdown.
 remote adresini değiştirmek için şu kodları kullanıyoruz:
 önce git remote -v ile urlyi kontrol ediyoruz ardından git remote set-url origin <YENI_ADRES> ile değiştirip ardından tekrar kontrol edip emin olabiliriz.
+
+---
+
 -TARIK FERİT ÜNAL-
 GitHub:https://github.com/TarikFeritUnal
 Linkedİn:www.linkedin.com/in/tarık-ferit-ünal-243s

@@ -260,6 +260,8 @@ remote adresini değiştirmek için şu kodları kullanıyoruz:
 ---
 
 -TARIK FERİT ÜNAL-
+
 GitHub:https://github.com/TarikFeritUnal
-Linkedİn:www.linkedin.com/in/tarık-ferit-ünal-243s
+
+Linkedin:www.linkedin.com/in/tarık-ferit-ünal-243s
 

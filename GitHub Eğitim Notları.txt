@@ -1,0 +1,393 @@
+TERMİNAL
+
+terminaldeki ls komutu hangi klasörün içindeysek oradaki dosyaları bize göstermeye yarar.
+
+pwd komutu ise print working directory yani hangi klasörde olduğumuz gösterir.
+
+cd komutu ise dosya açmamızı o dosyaya gitmemizi sağlar.(chance directory)
+
+cd .. komutu ise bir önceki klasöre geri gel demek.
+
+eğer cd komutunda bir klasörün ismini aratırken taba basarsak bizim için otomatik tamamlar.
+
+clear komutu ise ekranı temizlemeye yarıyor.
+
+mkdir komutu ise klasör oluşturmaya yarıyor.(make directory)
+
+touch komutu ile dosya oluşturduk örnek: touch not.txt
+
+rm komutu ise dosya silmeye yarıyor. (sadece dosya silmeye yarar klasör silemez.)
+
+rm -rf komutu ise klasör silmeye yarıyor.
+
+git yazığımız zaman terminale gitin yardım komutları çalışır.
+
+git --version yazarak git in sürümünü öğrenebiliriz.
+
+komut yazarken üst ve alt tuşlarına basarak önceden yazdığımız kodları ekrana getirebiliriz.
+----------------------------------------------------------------------------------------------------------------------------
+
+Git
+
+yaptığımız projelerdeki yaptığımız kayıt işlemlerine commit adını veriyoruz.
+ 
+yaptığımız ortak projelerde farklı kişilerin yaptığı işe branch diyoruz yani dallanma. aynı kodun farklı dallarla farkli kişilerce yapılması aslında. illaki farklı kişilerce yapılmasına gerek yok tek başımızada branch yapabiliriz.
+
+ardından bu commitler birleşip tek noktada toplanabilir.
+
+ve bu versiyon kontrol sisteminde istediğimiz noktaya gidebilir istediğimiz versiyona.
+
+yaptığımız projelerde git add komutu yazdığımız kodları sahneye alır commit etmeden önce, ardındanda git commit koduyla kodları commit eder.
+
+git status kodu gitin anlık durumunu gösterir.klasörün gite bağlı olup olmadığını kontrol etmek için.
+
+git init kodu gitin başlamasını sağlar o klasörün gitde aktif olduğu anlamına gelir.
+
+bir kodu git init etmeden önce git status yaparak kontrol etmede fayda var çünkü bir dosya iki kere init edilirse hata oluşabilir.
+
+ls -la komutu gizli klasörleride görüntülememize olanak tanır.
+
+git add komutu ile ile git kütüphanemize ekleyebiliriz
+
+sadece git commit kodunu yazıp enterlarsak varsayılan olan idemiz açılır.
+
+git sisteminde commit ederken yorum eklemek zorunludur.ve kodlamada çok önemlidir.
+
+git commit -m "  "   bu kodla commit yorumunu tırnak içine yazabiliriz.
+
+git log komutu oluşturduğumuz commitleri gösterir.
+
+her commitin kendine ait bir hash kodu vardır.
+
+git add . komutu herşeyi ekler
+
+git log çıktısından çıkmak ve komut satırına dönmek için klavyeden q tuşuna basmamız gerekir.
+
+gizlemek istediğimiz local repomuza atmak istemediğimiz dosyalar olabilir bunları en basından görmezden gelmek için .gitignore adında bir dosya oluştururuz bu dosya içine gizlemek istediğimiz dosyaları yazarız git sistemi bu dosyaları otomatik olarak algıladığı için git repomuza eklemez.git add . yapsak bile gizlediğimiz dosyalar repomuza eklenmez,gitin takibinden cıkartır.
+
+github ın kendi reposunda yazılım dilleri için hazır gitignore templateleri var.
+
+git log yazdığımız zaman çıkan HEAD kavramı  bizim hangi branchde olduğumuzu gösterir.illaki en son kaldıgımız commiti göstermek zorunda değildir.en son hangi branchde kaldıysak orayı gösterir
+
+git branch komutu bize güncel branchleri gösterir.
+
+yeni bir branch açmak istediğimiz zaman git branch komutunu kullanırız.genelde branchlere isim verirken git branch feat/....
+şeklinde olur feat features anlamına gelir yani yenilik genel kullanımı boylerdir ama istediğimiz gibi yazabiliriz.
+
+git branch ... koduyla yeni branch oluştururuz ama yeni branche geçiş yapmak için git switch (gitmek istediğimiz branchin adı) kodunu yazarız.
+
+
+branch yaptıktan sonra head feate geçer ama özellik olarak master branch ile aynıdır dallandırmamız için yeni bir commit atmamız gerekir.
+
+git switch master kodu ile master brancha geri doneriz.
+
+git merge komutu ile istediğimiz branchi master ile birleştirip master branche dahil edebiliriz.hangi branche diğer branchi eklemek istiyorsak o branchde olmamız lazım.
+
+(HEAD -> feature, master) bu yaptığımız commitin hem masterda hemde feature branchinde olduğunu gösterir yani bu commit dallanmadan önceki branch yapıp değistirmeden onceki commit.
+
+Merge Conflict:
+
+eğer yeni branch açtığımızda bu branchde master branchi değiştirip tekrar ana branche geçtiğimiz zaman merge etmek istediğimizde dosyalar değişdiğinden çakışacaktır bu yüzden de otomatik merge edemez ve conflict olur yani çatışma. bunu düzeltmek için merge etmek istediğimizde çıkan conflictlerden birini yapmamız gerekir.ardından yapmak istediğimiz değişiklikleri yaptıktan sonra merge atabilmemiz için önce commit atmamız gerekir.
+
+
+<<<<<<< HEAD
+=======
+int a = 5;
+
+int b = 10;
+
+int d = 15; 
+
+int c = a+b+d;
+
+System.out.println(c);
+>>>>>>> feature
+
+
+
+burada master branchda kodları sildiğimiz için conflict hatasını bize gösteriyor ===== altındaki kısım feature branchindekin gösteriyor, üstündeki ise master daki halini gösteriyor merge yapabilmen için bu hataları çözmen gerekiyor diyo aslında burda merge atabilmemiz için hatayı düzeltip yeni bir commit atıp öyle merge atmamız gerekiyor.
+yani aslında bize karar ver diyor master branchdekinimi yoksa head dekinimi yapmak istiyorsun yada düzenleyip yapmakmı.hataları düzeltip commit ettikten sonra otomatik olarak merge eder.
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------
+NOT:
+
+git merge komutu kullanarak bir dalı (örneğin bir feature branch'i) master (veya main) dalı ile birleştirdiğinde, Git genellikle otomatik olarak bir "merge commit" oluşturur. Bu merge commit, iki dalın birleştiğini gösteren özel bir commit’tir.
+
+Eğer master ve feature dalları arasında çatallanma (divergence) varsa, Git otomatik olarak bir merge commit oluşturur. Bu commit, "Merge branch 'feature'" gibi bir mesajla gelir.
+
+Eğer dallar fast-forward (doğrudan ilerleme) ile birleştirilebiliyorsa, yani master hiç ilerlememişse ve feature sadece yeni commitler içeriyorsa, Git yeni bir commit oluşturmadan sadece master'ın başını feature'ın son commit’ine kaydırır.
+
+Durum	                                                        Ne Olur?
+feature dalı master'dan ilerlediyse ve master değişmemişse	Fast-forward merge (yeni commit olmaz)
+Her iki dalda da yeni commitler varsa	                        Merge commit (yeni bir commit oluşur)
+
+Eğer merge commit oluşmasını zorunlu kılmak istersen, git merge --no-ff feature kodunu kullanabilirsin.
+
+
+fast-forward :
+Bir dalı (örneğin feature dalı), main dalından ayırdıysan ve main dalında hiç değişiklik yapılmadıysa, feature dalındaki değişiklikler main dalına doğrudan uygulanabilir. Bu durumda Git yeni bir "merge commit" oluşturmaya gerek duymaz, sadece main dalının ucunu feature dalının sonuna ileri sarar. Bu işleme "fast-forward merge" denir.
+
+yani yeni branch oluşturursak ve en son kaldığımız master commitden itibaren bir değişiklik yapmazsak master branch ile yeni oluşturduğumuz branchi birleştirirken fast-forward yöntemini kullanır  	
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+Stash:
+mesela yeni bir branch açtık ve o branchde değişiklikler yaptık ve ardından git add komutu ile değişiklikleri ekledik ama commit etmedik örneğin bu anda master branche geri dönmemiz gerekti git switch master yaptığımızda yeni branchde yaptığımız değişikliklerde bizimle birlikte master branche gelir 
+
+eğer git restore <file> kodunu yazarsak master branchdeki haline geri döner, sonrasında tekrar git switch yapıp önceden geldiğimiz branche geri döndüğümüzde önceki yaptığımız değişikliklerde gider (commit yapmadığım için gitti).
+
+bunu çözmek için bir diğer yöntem stash yöntemidir.
+stash local repden ayrı bir gitin saklama yöntemidir.(stash bir anlamda zulalama demektir)
+git stash yaptığımız zaman git add yapmasak veya git commit yapmasak bile saklar ama local repoya eklemez o yüzden git status durumunda bir değişiklik algılanmaz.
+
+stashleri saklarken not düşmek istersek git stash save "mesaj" komutunu uygulayabiliriz
+
+stashlediğimiz yani yedeklediğimiz değişiklikleri istediğimiz yerde uygulayabiliriz.
+
+stashlediğimiz yani yedeklediğimiz değişiklikleri geri getirmek için git stash pop komutunu kullanırız.
+
+git stash list kodu ise güncel stash listesini gösterir.
+
+birden fazla stash yapabiliriz bunları listeledikten sonra şu şekilde görünür.
+$ git stash list
+stash@{0}: WIP on ekstrabolumler: e3c6f89 ekstra bolum eklendi
+stash@{1}: WIP on ekstrabolumler: e3c6f89 ekstra bolum eklendi
+
+burda eklemek istediğimiz stashi eklemek için git stash apply stash@{istediğimiz stashin indexi}
+
+git stash clear koduyla tüm stashleri silebiliriz.
+
+belirli bir stashi silmek için git stash drop stash@{0}.
+
+git stash apply yaparsam git stash popdan farklı olarak değişikliği geri getirir ama stashden silmez.
+---------------------------------------------------------------------------------------------
+
+Git de geri dönme işlemi.
+
+git restore <file> komutu yaptığımız değişiklikleri iptal etmeye yarar.
+
+geçmişteki bir commite dönmek için kullanmamız gereken kod -git checkout "Hash Code" gitmek istediğimiz commitin git log yaparak baktığımız hash kodunu yazarak yapıyoruz.
+
+git checkout ile önceki commitlere gittiğimizde uyarı verir HEAD yani en son kaldığın commit den kopuk diye. kopuk HEAD e Detached HEAD denir.
+
+geriye döndükten sonra en son kaldığımız yere dönmenin en garanti yolu git switch master yapmaktır. master branche geri döner.
+
+geriye döndüğümüz yerden yeni bir branch açabiliriz. açtıktan sonra git switch ile yeni açtığımız branche geri dönmeyi unutmamalıyız. istersek ardından git switch master yaparak master branchimize geri dönebiliriz.
+
+
+eğer geriye dönmek istediğimiz bir commite geri dönerken onun önündeki commitleri silmek istersem ama değişiklikleri tutmak istersem kullanacağım komut: git reset <gideceğimiz commitin hash kodu>
+
+
+eğer geriye dönerken yazptığımız değişiklikleride silmek istersek kullanacağımız kod: git reset --hard <gideceğimiz commitin hash kodu>
+
+bu kodu kullanırken dikkatli olmalıyız çünkü ortak projelerde çalışırken commitleride sildiğimiz için tekrar githuba yüklediğimizde projelerde çakışmalar olabilir.
+
+git revert komutunda ise geriye dönmeden ve master branchde kalarak iptal etmek istediğimiz commitler için kullanırız git revert <iptal etmek istediğimiz commitin hash kodu>
+sadece değişiklikleri siler ama eski commitler durmaya devam eder.
+
+kod yazarken yaptığımız değişikleri attığımız commitler arasında yaptığımız değişikleri farklılıkları görmek istiyorsak git diff komutunu kullanabiliriz sildiğimiz veya yeni yazdığımız değişiklikleride gösterir.
+
+sadece git diff yazarsak o dosya içinde yaptığımız anlık değişiklikleri gösterir git add yapıp local repoya ekledikten sonra git diff komutu çalışmaz.
+
+commitler arasındaki farkı görmek istersek ise kullanacağımız kod               "git diff <commit hashcode> <commit hashcode>"  Not:kod çalışmaz ise araya boşluk koymak yerine iki nokta koymayi dene.
+
+iki branch arasındaki farklarıda görebiliriz git diff master feat
+
+----------------------------------------------------------------------------
+
+git rebase 
+
+git rebase mülakatlarda çok çıkar dikkatli öğrenmek lazım
+
+mesela yeni bir branch açtık ve orada commit atıyoruz o sırada master branche değişiklikler geldi, master branchi yeni açtiğimiz branche merge ederek gelen değişiklikleri branchimize entegre edebiliriz ama bu durum sürekli olursa yani biz yeni branchimizde çalışırken sürekli master branche değişiklikler gerlirse ve sürekli merge yaparsak log kirliliği olabilir bunun yerine rebase yapmak daha mantıklı rebase ise şöyle çalışıyor yeni açtığımız branchde yaptığımız değişiklikleri en son atılan master branchdeki commitin sonuna ekliyor
+
+git rebase yaparken dikkatli olmalıyız çünkü logların tarihini değiştirmiş oluyoruz kronolojik sıralamasınada müdahale etmiş oluyoruz 
+
+
+dikkat etmemiz gereken bir diğer konuda eğer kodumuzu insanlara paylaşıyorsak ve insanlar da bu kodlar üzerinde çalışıyorsa rebase yapmamamız gerekir çünkü örneğin yeni açtığımız branchde ilerliyoruz ve insanlar o branchdeki commitlerle çalıyor ve eğer rebase edersek paylaşdığımız insanların kodları çöp olabilir o yüzden dikkatli olmalıyız ve genellikler kullanmamalıyız. eğer kodumuzu insanlarla paylaşmadıysak rebase yapmakda problem yok paylaşıcaksak dikkatli olmamız gerekiyor.
+
+git rebase kullanırken master branche aktarmak istediğimiz branchde olmamız gerekiyor
+
+git rebase master
+
+toplu çalışırken dikkatli olmamız gerekiyor.
+-----------------------------------------------------------------------------------------
+gitlab de aynı github gibi bir ekosistemdir.
+
+insanların repoları üzerinde issues yani tartışmalar açılabilir fikir danışılabilir soru sorulabilir.
+
+kapanmış tartışmalar çözülmüş sorunlarda görüntülenebilir güncel olanlarda kontrol edilebilir. forum mantığı gibi
+
+pull request kısmında projeye yapılan katkıları proje sahibi isterse kendi projesine ekleyebilir.
+
+githuba proje yüklerken profilimizin sol kısmından new repo diyerek yükleyebiliriz.
+
+repomuzu oluşturduktan sonra açılan sayfayı kapatmamamız gerekiyor çünkü önemli bilgiler veriyor github bize.
+
+ilk kısımda gösterilen bizim repomuzun linki .git ile biten
+eğer .git kısmını silerek yazarsak bizim repomuzun sayfasına gider
+.git li bu link bizim kodumuzda yaptığımız değişikliklerin internete kaydedildiği yer.
+
+
+örn:https://github.com/TarikFeritUnal/GitHub_proje_yukleme_test_0.git
+
+repomuzu oluşturduktan sonra açılan ilk sayfada iki tane kod dizini çıkar bunlardan ilki eğer git sistemi ile alakalı projeye hiçbirşey yapılmamışsa kullanılabilecek hazır terminal kodudur
+
+örn:
+echo "# GitHub_proje_yukleme_test_0" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/TarikFeritUnal/GitHub_proje_yukleme_test_0.git
+git push -u origin main
+
+biz projemizi git init yaptığımız commitler attığımız vs yaptığımız için bu kod dizinini kullanmamıza gerek yok.yani biz halihazırda yerel repo sistemini kullandiğimiz için gerek yok.
+
+biz halihazırda git sistemini kullanıp sonrasında githubda repo açtığımız için bizim kullanmamız gereken kod dizini şu şekilde:
+
+git remote add origin https://github.com/TarikFeritUnal/GitHub_proje_yukleme_test_0.git
+git branch -M main
+git push -u origin main
+
+
+git remote komutu bizim yerel repomuzu github üzerinde oluşturduğumuz reponun urlsine bağlamayı sağlar.
+
+örn:
+git remote add origin https://github.com/TarikFeritUnal/GitHub_proje_yukleme_test_0.git
+
+burdaki origin kelimesi bir komut değil isim orijini başlangıcı gibi anlamlara gelir.
+
+
+git push ise yaptığımız commitleri push etmemize yani githubdaki repomuza yüklemeyi sağlar.
+ örnek kullanımı: git push -u origin main
+
+ burada origine yükle diyoruz.aslında her seferinde urlyi yazmak yerine urlye bir isim vermiş oluyoruz ana mantık bu.
+
+ buradaki main mantığı ise push etmek istediğimiz branchin isminden geliyor.
+ burada kodu bu şekilde yazarsak hata alırız çünkü bizim ana branchimizin adı master
+
+ örnek bir senaryoda mesela kodumuzu yükledik push ettik ama githubda commit atanlarda başka bir isim ve profil gözükebilir.bunun sebebi ise eğitim en başındayken öğrendiğimiz git sistemini kullanan kişinin adı ve e postasını girmiştik. git log yaparsakda author yani yazar olarak gözüktüğümüz içinde github sistemi o sisteme girdiğimiz authoru githubda gösterir buda aslında sahip olduğumuz projede farklı kişilerin çalışıp commit atabileceği ve commitleri atan kişinin kim olduğu tespit edilebiliyor
+
+ git push -u origin main 
+ buradaki u harfi upstream anlamına geliyor. -u kullandığımız için origin içinde ve master içinde olduğumuz sürece git push yazmamız yeterli olur.
+
+ ---------------------------------------------------------------------------------------------
+
+feat branchini attığımız zaman repomuzda bir uyarı mesajı çıkar. compare&pull request
+
+buna bastığımız zaman değişiklikleri kontrol ediyor ve kıyaslıyor ve ikşi tane branch arasında nelerin değiştiğini bize gösteriyor.
+
+merge edilebilme durumunuda bize gösteriyor yani featdeki değişiklikleri mastera merge edebilirmisin edemezmisin onu söylüyor.
+
+ve bunu yaparken bizden bir comment istiyor yani yorum ve ardından bunu pull request yap diyor.
+
+pull request aslında iki branchi birleştirme talebi oluşturmak demek.
+
+toplu projelerde çalışırken örneğin birinin projesi üzerinde çalışırken yeni bir feat açtık ve değişiklikler yaptık ardından compare&pull request yaptık yani karşılaştır ve mastera branche merge etme talebi oluştur demek bunu yaparkende repo sahibine mesaj yollayabiliyoruz.
+
+bu merge etme işlemini sadece terminalden yapmamıza gerek yok istersek github üzerinden de yapabiliyoruz.
+
+talep geldikten sonra yapılan değişikliklerede bakarak istersek değişiklikleri onaylayarak merge işlemine izin verebiliriz.
+
+merge işlemini yaptıktan sonra uyarı mesajı gelir rahatlıkla feat branchini silebilirsin diye.
+restore branch diyerek geride getirebiliriz.
+
+----------------------------------------------------------------------------------------------
+merge işlemini onayladık ve yeni commitimiz atılarak branchimiz master branche bağlandı ama bu seferde github üzerinde yaptığım değişiklikler yereldeki git sistemime aktarılmadı geride kaldı bunuda çözmek için bazı kodlar kullanıyoruz
+
+git branch -r yaparak remote branchleri görüntüleyebiliriz.
+
+eğer remote branchleri arasında geçiş yapmak istiyorsak git branch kodu çalışmaz.
+onun yerine git "checkout origin/master" komutunu kullanmalıyız
+
+git fetch ve git pull adında iki komutumuz var bunları farkları şunlar:
+
+git fetch githubdaki değişiklikleri yerel git sistemimize entegre eder git push komutu gibi yazılır  örn: git fetch origin master
+
+bu kodu yazdıktan sonra git status çalıştırdığımız zaman terminale bir uyarı gelir:
+
+$ git status
+On branch master
+Your branch is behind 'origin/master' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+
+yani bu demek oluyorki senin branchin origin/master branchinden iki commit geride fast-forwarded yapabilirsin. şimdide git fetch yazarak github sisteminden getirdiğimiz değişiklikleri "git pull" komutu ile sistemimize entegre edebiliriz.
+örn: git pull origin master
+
+ama git fetch yaptıktan sonra yani githubdaki değişiklikleri çağırdıktan sonra git pull yapmadan yani değişiklikleri entegre etmeden önce git checkout yaparak mutlaka kontrol etmek gerekir.
+
+git pull kodu aslında git fetch + git merge demek ama biz direkt git pull yapmak yerine git checkout ile kontrol ediyoruz.
+
+bu yüzden direkt git pull yapmak yerine git fetch yapmak daha güvenli çünkü değişiklikleri yapmadan getiriyor ve ardından biz kontrol ettikten sonra istersen git pull yaparak değişiklikleri uygulayabiliriz.
+
+git pull ile githubdaki pull&request aynı şeyler değildir.
+
+aynı bilgisayar içinde farklı kullanıcı adı ve email ile aynı repoya commit atabilir push atabilriz ama başka bilgisayardaki kullanıcı bizim repomuzu klonlayıp  değişiklik yaptığı ve push yapmaya çalıştığı zaman hata alır çünkü biz ona yetki vermedik.
+
+mesela başka birinin projesinde değişiklik yapmak istiyoruz bunu git clone yaparak ve push yaparak yapamayız bunun yolu ise önce forklamakdan geçiyor önce forklayıp kendi repomuza ekliyoruz ondan sonra değişiklikleri yapıyoruz bunları yaptıktan sonra asıl repo sahibine pull&request talebi oluşturabiliriz eğer asıl repo sahibi kabul ederse yaptığımız değişiklikler asıl repoyla birleşir.
+
+mesela başka birinden bir repo forkladık ondan sonra asıl repo sahibi bir değişiklik yaptı istersek github üzerinden sync fork diyerek değişiklikleri kendi forkumuza ekleyebiliriz. 
+----------------------------------------------------------------------------------------------
+
+eğer bir projeyi bilgisayarımıza aktarmak istiyorsak önce repoya gidip code kısmından projenin urlsini kopyalayıp terminale gelip git clone < reponun urlsi> çalıştırmam gerekiyor.
+
+git clone ise bu repoyu direkt benim bilgisayarıma kopyala klonla anlamına geliyor.
+
+ fork ise çatallandırma demek yani mesela başka birinin projensini forklarsak proje kendi repomuza gelir ve yaptığımız değişiklikler onun değil bizim repomuza kaydedilir. forklamak için terminalde birşey yazmaya gerek yok direkt githubda repode sağ üstten tıklamak yeterli olur.
+----------------------------------------------------------------------------------------------
+
+eğer githubda private bir repo açarsak ve o repoya erişim sağlamasını istediğimiz kişileri eklemek için repoda settings kısmından Collaborators (işbirlikçiler) kısmına geliyoruz ve add people diyerek arama yaparak kullanıcıları ekliyoruz.
+
+bir projede başkalarıyla çalışırken direkt erişimim var diye push etmek yerine yeni bir branch açıp yapılan değişiklikleri pull&request etmek daha sağlıklı olur.
+
+----------------------------------------------------------------------------------------------
+githubdaki action kısmı ise projeyi yönetme konusunda yardımcı araçlar sunuyor.devops çözümleri gibi.
+
+readme dosyaları .md formatındadır yani markdown.
+
+remote adresini değiştirmek için şu kodları kullanıyoruz:
+önce git remote -v ile urlyi kontrol ediyoruz ardından git remote set-url origin <YENI_ADRES> ile değiştirip ardından tekrar kontrol edip emin olabiliriz.
+
+
+-TARIK FERİT ÜNAL-
+
+GitHub:https://github.com/TarikFeritUnal
+Linkedİn:www.linkedin.com/in/tarık-ferit-ünal-243s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

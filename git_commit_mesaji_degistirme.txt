@@ -1,0 +1,29 @@
+Git Commit Mesajını Değiştirme 
+------------------------------------
+
+1) En son commit mesajını değiştirme
+------------------------------------
+Henüz push etmediyseniz:
+    git commit --amend -m "Yeni commit mesajı"
+
+- Bu komut en son commit'in mesajını değiştirir.
+- Eğer push etmediyseniz hiçbir sorun olmaz.
+- Eğer push ettiyseniz, commit mesajını değiştirdikten sonra şu komutu çalıştırmanız gerekir:
+    git push --force
+
+
+2) Daha eski commit mesajlarını değiştirme
+------------------------------------------
+Birden fazla commit mesajını değiştirmek için interactive rebase kullanılır:
+
+    git rebase -i HEAD~3
+
+- Buradaki 3, son 3 commit üzerinde işlem yapılacağını belirtir. İhtiyacınıza göre sayıyı değiştirebilirsiniz.
+- Açılan editörde değiştirmek istediğiniz commit'in karşısındaki 'pick' kelimesini 'reword' ile değiştirin.
+- Sonrasında yeni commit mesajını yazın.
+
+Rebase işlemi tamamlandığında commit mesajlarınız güncellenmiş olur.
+
+- Eğer bu commit'ler push edilmediyse normal şekilde push yapabilirsiniz.
+- Eğer commit'ler push edildiyse değişiklikten sonra şu komutu çalıştırmanız gerekir:
+    git push --force

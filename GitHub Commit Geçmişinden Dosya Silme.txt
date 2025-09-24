@@ -1,0 +1,60 @@
+🔹 GitHub Commit Geçmişinden Yanlış Dosya Silme
+
+Durum:
+
+* Yanlışlıkla bir dosya push edildi.
+* Dosya GitHub ve local repo’dan silindi.
+* Commit geçmişinde hala gözüküyor.
+* Amaç: Dosyayı tamamen kaldırmak.
+
+1️.Yerel Değişiklikleri Eklemek Zorunlu mu?
+
+* Dosya zaten silindiyse staging’e eklemene gerek yok.
+* `git filter-branch` veya BFG, commit geçmişini direkt tarar.
+
+2️.Yöntem 1: git filter-branch
+
+```
+git filter-branch --force --index-filter "git rm --cached --ignore-unmatch path/to/dosya.txt" --prune-empty --tag-name-filter cat -- --all
+git push origin --force --all
+git push origin --force --tags
+
+```
+
+* `path/to/dosya.txt` → silmek istediğin dosya.
+* `--force` → dikkat: ekip arkadaşlarının kopyaları etkilenebilir.
+
+3️.Yöntem 2: BFG Repo-Cleaner (daha hızlı)
+
+* Java kurulu olmalı: `java -version`
+* BFG jar indir: [https://rtyley.github.io/bfg-repo-cleaner/](https://rtyley.github.io/bfg-repo-cleaner/)
+
+Mirror repo klonla:
+
+```
+git clone --mirror https://github.com/kullaniciAdi/repoAdi.git
+cd repoAdi.git
+
+```
+
+Dosyayı geçmişten sil:
+
+```
+java -jar "C:\Users\tarik\Downloads\bfg-1.15.0.jar" --delete-files dosya.txt
+
+```
+
+Temizlemeyi uygula ve push et:
+
+```
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+git push --force
+
+```
+
+4.Notlar
+
+* BFG ve `filter-branch` geçmişi değiştirir, dikkatli kullan.
+* Başkalarıyla paylaşılan repolarda force push sorun çıkarabilir.
+* İşlemden sonra dosya tamamen geçmişten silinir.
